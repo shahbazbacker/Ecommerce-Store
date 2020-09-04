@@ -1,6 +1,6 @@
 body{
 	/* background-color: hsl(0, 0%, 98%); */
-	background: url('https://www.solidbackgrounds.com/images/1920x1080/1920x1080-light-blue-solid-color-background.jpg');
+	background: url('file:///home/shabz/django/ecommerce_store/static/images/blue.jpg');
 }
 
 h1,h2,h3,h4,h5,h6{

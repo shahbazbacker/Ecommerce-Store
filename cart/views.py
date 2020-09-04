@@ -32,6 +32,6 @@ def cart_update(request):
     else:
         cart_obj.products.add(obj)
     request.session['cart_total'] = cart_obj.products.count()
-    return redirect('products:product_list')
+    return redirect('cart:cart_page')
 
 

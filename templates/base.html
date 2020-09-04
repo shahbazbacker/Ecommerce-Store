@@ -15,15 +15,18 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-        <a class="navbar-brand" href="{% url 'products:product_list' %}">Store</a>
+        <a class="navbar-brand mr-4" href="{% url 'products:product_list' %}">Store</a>
+        
           {% if request.session.cart_total %}
-          
-              <a class="nav navbar-nav navbar-right" href="/cart">Cart
+<!--           nav navbar-nav navbar-right -->
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item" href="/cart">Cart
                 <span class="badge badge-info">{{ request.session.cart_total }}</span>
               </a>
-
+            </div>
           {% else %}
-          {% endif %}       
+          {% endif %}
+        </div>       
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

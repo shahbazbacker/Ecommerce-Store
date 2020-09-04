@@ -16,6 +16,14 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
         <a class="navbar-brand" href="{% url 'products:product_list' %}">Store</a>
+          {% if request.session.cart_total %}
+            <li class="nav-item ml-4 mr-2">
+              <a class="nav-link" href="/cart">Cart
+                <span class="badge badge-info">{{ request.session.cart_total }}</span>
+              </a>
+            </li>
+          {% else %}
+          {% endif %}       
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,14 +40,14 @@
 
             <form class="form-inline">
                 <ul class="navbar-nav mr-auto">
-                    {% if request.session.cart_total %}
+<!--                     {% if request.session.cart_total %}
                     <li class="nav-item ml-4 mr-2">
                         <a class="nav-link" href="/cart">Cart
                         <span class="badge badge-info">{{ request.session.cart_total }}</span>
                         </a>
                     </li>
                     {% else %}
-                    {% endif %}                    
+                    {% endif %}        -->             
                     
                     {% if request.user.is_authenticated %}
 

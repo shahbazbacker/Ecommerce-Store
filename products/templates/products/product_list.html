@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %} Store | Product {% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="row product-row mx-auto mb-2">
+                    {% for product in product_list %}
+                    <div id="{{ product.id }}" class="col-md-4 mb-4">
+                        <div class="card product-card mb-2">
+                            <img class="card-img-top" src="{{ product.image.url }}" height="200px" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-title">{{ product.name }}</p>
+                                <p class="card-text">Price: ₹{{ product.price }}</p>
+                                <form action="/#{{ product.id }}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" value="{{ product.id }}" name="product">
+                                    {% comment %} <input class="btn btn-primary" type="submit" value="Add to cart"> {% endcomment %}
+                                    {% comment %} <a href="{% url 'store:addtocart' product.pk %}" class="btn btn-primary"> {% endcomment %}
+									<a class="btn btn-success" href="{{ product.get_absolute_url }}">View</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
